@@ -1,7 +1,24 @@
+import React, {useEffect} from 'react';
+
 import logo from './logo.svg';
 import './App.css';
 
+//Import Services
+import {getData} from './services/DataService';
+
 function App() {
+
+  useEffect (() => {
+    async function getDataaa() {
+        
+          console.log (await getData());
+        
+    }
+    getDataaa();
+  
+  });
+
+
   return (
     <div className="App">
       <header className="App-header">
