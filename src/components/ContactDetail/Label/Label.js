@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 
-import './Label.css';
-
 const Label = (props) => {
     
     return (
