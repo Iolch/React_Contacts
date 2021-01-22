@@ -12,12 +12,11 @@ export const setContacts = () => {
             const response = await getData();
             
             if(!response){
-                throw new Error('Problemas com a api.');
+                throw new Error('Problems with api.');
             }
             
             let contacts = [];
             contacts.push(new Contact({...response.data.person}, {...response.data.company}));
-            // let contacts = new Contact({...response.data.person}, {...response.data.company});
             
             dispatch({
                 type:SET_CONTACTS, 

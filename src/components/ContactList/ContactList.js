@@ -1,7 +1,5 @@
 import React, {useCallback, useState, useEffect} from 'react';
 
-import './ContactList.css';
-
 // Import Redux
 import { useSelector } from 'react-redux';
 
