@@ -1,12 +1,12 @@
-import { GET_CONTACTS } from '../actions/Contacts';
+import { SET_CONTACTS } from '../actions/Contacts';
 import Contact from '../../models/Contact';
 const initialState = {
-    contacts: Contact,
+    contacts: [],
 };
 const contactsReducer = (state = initialState, action) => {
 
     switch(action.type){
-        case GET_CONTACTS:
+        case SET_CONTACTS:
             return {...state, contacts: action.contacts}
         default:
             return state;

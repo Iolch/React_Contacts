@@ -20,21 +20,26 @@ const ContactList = (props) => {
     const { isModalOpen, openModal, closeModal } = useModal();
 
     const contacts = useSelector(state => state.contactsReducer.contacts);
-    console.log(contacts.person);
+    
     return (
-        <div >
+        <div>
             <p class="mt-2 text-gray-500">Contacts</p>
-            <button onClick={openModal}>
-                <Contact firstname={contacts.person.first_name} email={contacts.person.emails[0]} picture={contacts.person.profile_pic}/>
-            </button>
-                      
-            <Modal
-                id="any-unique-identifier"
-                isOpen={isModalOpen}
-                transition={ModalTransition.BOTTOM_UP}
-            >
-                <ContactDetail closeModal={closeModal} person={contacts.person} company={contacts.company}/>
-            </Modal>
+
+            {contacts.map((contact,index)=>{
+
+                return  <div>
+                            <button onClick={openModal}>
+                                <Contact firstname={contact.person.first_name} email={contact.person.emails[0]} picture={contact.person.profile_pic}/>
+                            </button>
+                            <Modal
+                            id="modal" 
+                            isOpen={isModalOpen}
+                            transition={ModalTransition.BOTTOM_UP}
+                            >
+                                <ContactDetail closeModal={closeModal} person={contact.person} company={contact.company}/>
+                            </Modal> 
+                        </div>
+            })}
         </div>
     );
 };

@@ -4,7 +4,7 @@ import './App.css';
 
 // Import Redux
 import { useDispatch} from 'react-redux';
-import { getContacts } from './store/actions/Contacts';
+import { setContacts } from './store/actions/Contacts';
 
 // Import Components
 import ContactList from './components/ContactList/ContactList';
@@ -12,9 +12,6 @@ import ContactList from './components/ContactList/ContactList';
 // Import Modal
 import {
   ModalProvider,
-  Modal,
-  useModal,
-  ModalTransition,
 } from 'react-simple-hook-modal';
 
 function App() {
@@ -26,7 +23,7 @@ function App() {
   const dispatch = useDispatch(); 
   const handleContacts = useCallback(async () => {
     try{
-      await dispatch(getContacts()); 
+      await dispatch(setContacts()); 
     }catch(err){
       console.log(err.message);
     }
