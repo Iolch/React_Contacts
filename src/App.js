@@ -1,22 +1,28 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useCallback} from 'react';
 
 import logo from './logo.svg';
 import './App.css';
 
-//Import Services
-import {getData} from './services/DataService';
+// Import Redux
+import {useDispatch} from 'react-redux';
+import { getContacts } from './store/actions/Contacts';
+
 
 function App() {
 
   useEffect (() => {
-    async function getDataaa() {
-        
-          console.log (await getData());
-        
-    }
-    getDataaa();
+    handleContacts();
   
   });
+
+  const dispatch = useDispatch(); 
+  const handleContacts = useCallback(async () => {
+    try{
+      await dispatch(getContacts()); 
+    }catch(err){
+      console.log(err.message);
+    }
+  },[dispatch]);
 
 
   return (
