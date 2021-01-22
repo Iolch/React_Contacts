@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 
 import './ContactDetail.css';
 
+// Import Components
 import Label from './Label/Label';
+import ContactSocialMedia from './ContactSocialMedia/ContactSocialMedia';
 
 const ContactDetail = (props) => {
     const getPrimaryPhone = () => {
@@ -42,24 +44,7 @@ const ContactDetail = (props) => {
                     <p className="font-bold capitalize">{props.person.first_name} {props.person.last_name}</p>
                     <p className="text-gray-500 capitalize">{props.person.roles[0]} at <a className="text-indigo-500 font-bold">{props.person.company_name}</a></p>
 
-                    <div className="flex mt-5 mb-5 items-center">
-
-                        <a target='_blank' href={"https://" + props.person.facebook} className="border-2 border-gray-200 p-2 ml-3 mr-3 rounded-xl">
-                            <svg className="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </a>
-                        <a target='_blank' href={"https://" + props.person.twitter} className="border-2 border-gray-200 p-2 ml-3 mr-3 rounded-xl">
-                            <svg className="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </a>
-                        <a target='_blank' href={"https://" + props.person.linkedin} className="border-2 border-gray-200 p-2 ml-3 mr-3 rounded-xl">
-                            <svg className="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </a>
-                    </div>
+                    <ContactSocialMedia facebook={props.person.facebook} twitter={props.person.twitter} linkedin={props.person.linkedin} />
                 </div>
                 
                 {/* Details */}
@@ -97,23 +82,8 @@ const ContactDetail = (props) => {
                     <Label title="company description" content={props.company.description}/>
 
                     <Label title="social media" content="">
-                        <div className="flex">
-                            <a target='_blank' href={"https://" + props.company.facebook_url} className="p-2 ml-3 mr-3">
-                                <svg className="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </a>
-                            <a target='_blank' href={"https://" + props.company.twitter_url} className="p-2 ml-3 mr-3">
-                                <svg className="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </a>
-                            <a target='_blank' href={"https://" + props.person.linkedin} className="p-2 ml-3 mr-3">
-                                <svg className="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </a>
-                        </div>
+                       <ContactSocialMedia facebook={props.company.facebook_url} twitter={props.company.twitter_url} linkedin={props.person.linkedin} />
+                        
                     </Label>
                 </div>
             </div>
