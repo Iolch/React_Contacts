@@ -11,14 +11,10 @@ import ContactDetail from '../ContactDetail/ContactDetail';
 
 // Import Modal
 import {
-    ModalProvider,
     Modal,
     useModal,
     ModalTransition,
   } from 'react-simple-hook-modal';
-
-// Import Service
-import {getData} from '../../services/DataService'
 
 const ContactList = (props) => {
     const { isModalOpen, openModal, closeModal } = useModal();
@@ -29,7 +25,7 @@ const ContactList = (props) => {
         <div >
             <p class="mt-2 text-gray-500">Contacts</p>
             <button onClick={openModal}>
-                <Contact firstname={contacts.person.first_name} email={contacts.person.emails[0]}/>
+                <Contact firstname={contacts.person.first_name} email={contacts.person.emails[0]} picture={contacts.person.profile_pic}/>
             </button>
                       
             <Modal
