@@ -1,17 +1,17 @@
 import { GET_CONTACTS } from '../actions/Contacts';
 import Contact from '../../models/Contact';
 const initialState = {
-    contact: Contact,
+    contacts: Contact,
 };
-const companyReducer = (state = initialState, action) => {
+const contactsReducer = (state = initialState, action) => {
 
     switch(action.type){
         case GET_CONTACTS:
-            return {...state, contact: action.contact}
+            return {...state, contacts: action.contacts}
         default:
             return state;
     }
     return state;
 }
 
-export default companyReducer;
+export default contactsReducer;

@@ -1,20 +1,28 @@
 import React, {useEffect, useCallback} from 'react';
 
-import logo from './logo.svg';
 import './App.css';
 
 // Import Redux
-import {useDispatch} from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { getContacts } from './store/actions/Contacts';
 
+// Import Components
+import ContactList from './components/ContactList/ContactList';
+
+// Import Modal
+import {
+  ModalProvider,
+  Modal,
+  useModal,
+  ModalTransition,
+} from 'react-simple-hook-modal';
 
 function App() {
-
-  useEffect (() => {
-    handleContacts();
   
+  useEffect (() => {
+    handleContacts(); 
   });
-
+  
   const dispatch = useDispatch(); 
   const handleContacts = useCallback(async () => {
     try{
@@ -24,23 +32,11 @@ function App() {
     }
   },[dispatch]);
 
-
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ModalProvider>
+        <ContactList />  
+      </ModalProvider>      
     </div>
   );
 }
