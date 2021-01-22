@@ -5,6 +5,8 @@ import Label from './Label/Label';
 import ContactSocialMedia from './ContactSocialMedia/ContactSocialMedia';
 
 const ContactDetail = (props) => {
+    
+    // Função que busca o celular com o primary true
     const getPrimaryPhone = () => {
         let primary_number = "No number";
         props.person.phone_numbers.map(function(phone, i){
@@ -15,6 +17,7 @@ const ContactDetail = (props) => {
         return primary_number;
     }
 
+    // Função fixa que sempre retorna o local time de New York
     const getLocalTime = () => {
         const time = new Date().toLocaleString("en-US", {timeZone: "America/New_York"})
         return time;

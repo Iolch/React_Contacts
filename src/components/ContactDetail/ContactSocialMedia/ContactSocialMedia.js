@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import './Label.css';
-
 const ContactSocialMedia = (props) => {
     
     return (

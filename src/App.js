@@ -15,12 +15,15 @@ import {
 } from 'react-simple-hook-modal';
 
 function App() {
-  
+
+  const dispatch = useDispatch(); 
+
+  // A função handleContacts deve ser chamada no fim do ciclo de vida
   useEffect (() => {
     handleContacts(); 
   });
   
-  const dispatch = useDispatch(); 
+  // Função que dispara a action para armazenar os contatos no reducer
   const handleContacts = useCallback(async () => {
     try{
       await dispatch(setContacts()); 
