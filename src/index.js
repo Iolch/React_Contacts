@@ -16,16 +16,16 @@ import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 
 // import reducers
-import ContactReducer from './store/reducers/Contacts';
+import ContactsReducer from './store/reducers/Contacts';
 
 
 const rootReducer = combineReducers({
-  contactReducer: ContactReducer
+  contactsReducer: ContactsReducer
 });
 const persistConfig = {
   key: 'root',
   storage: storage,
-  whitelist: ['contactReducer'] 
+  whitelist: ['contactsReducer'] 
 };
 const pReducer = persistReducer(persistConfig, rootReducer);
 const store = createStore(pReducer, applyMiddleware(ReduxThunk));

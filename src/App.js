@@ -1,20 +1,21 @@
 import React, {useEffect, useCallback} from 'react';
 
-import logo from './logo.svg';
 import './App.css';
 
 // Import Redux
-import {useDispatch} from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { getContacts } from './store/actions/Contacts';
+
+// Import Components
+import ContactList from './components/ContactList/ContactList';
 
 
 function App() {
-
-  useEffect (() => {
-    handleContacts();
   
+  useEffect (() => {
+    handleContacts(); 
   });
-
+  
   const dispatch = useDispatch(); 
   const handleContacts = useCallback(async () => {
     try{
@@ -24,10 +25,9 @@ function App() {
     }
   },[dispatch]);
 
-
   return (
     <div className="App">
-      
+      <ContactList />        
     </div>
   );
 }

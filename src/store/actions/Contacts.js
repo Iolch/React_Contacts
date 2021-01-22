@@ -15,11 +15,11 @@ export const getContacts = () => {
                 throw new Error('Problemas com a api.');
             }
             
-            let contact = new Contact({...response.data.person}, {...response.data.company});
+            let contacts = new Contact({...response.data.person}, {...response.data.company});
             
             dispatch({
                 type:GET_CONTACTS, 
-                contact:contact
+                contacts:contacts
             });
         }catch (err){
             console.log(err);
