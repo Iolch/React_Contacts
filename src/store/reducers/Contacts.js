@@ -7,8 +7,7 @@ const contactsReducer = (state = initialState, action) => {
 
     switch(action.type){
         case GET_CONTACTS:
-            console.log(action.contacts);
-            return {...state, contact: action.contacts}
+            return {...state, contacts: action.contacts}
         default:
             return state;
     }

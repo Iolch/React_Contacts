@@ -9,6 +9,13 @@ import { getContacts } from './store/actions/Contacts';
 // Import Components
 import ContactList from './components/ContactList/ContactList';
 
+// Import Modal
+import {
+  ModalProvider,
+  Modal,
+  useModal,
+  ModalTransition,
+} from 'react-simple-hook-modal';
 
 function App() {
   
@@ -27,7 +34,9 @@ function App() {
 
   return (
     <div className="App">
-      <ContactList />        
+      <ModalProvider>
+        <ContactList />  
+      </ModalProvider>      
     </div>
   );
 }

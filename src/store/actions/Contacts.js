@@ -10,7 +10,7 @@ export const getContacts = () => {
     return async (dispatch, getState) => {
         try{
             const response = await getData();
-
+            
             if(!response){
                 throw new Error('Problemas com a api.');
             }
