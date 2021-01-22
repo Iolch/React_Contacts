@@ -7,7 +7,7 @@ const ContactSocialMedia = (props) => {
     return (
         <div className="flex mt-5 mb-5 items-center">
 
-            <a target='_blank' href={"https://" + props.facebook} className="border-2 border-gray-200 p-2 ml-3 mr-3 rounded-xl">
+            <a target='_blank' href={"https://" + props.facebook} className={props.style}>
                 <svg className="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
                 aria-describedby="desc" role="img">
                     <title>Facebook</title>
@@ -18,7 +18,7 @@ const ContactSocialMedia = (props) => {
                     strokeWidth="2" strokeLinejoin="round"></path>
                 </svg>
             </a>
-            <a target='_blank' href={"https://" + props.twitter} className="border-2 border-gray-200 p-2 ml-3 mr-3 rounded-xl">
+            <a target='_blank' href={"https://" + props.twitter} className={props.style}>
                 <svg className="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
                 aria-describedby="desc" role="img">
                     <title>Twitter</title>
@@ -29,7 +29,7 @@ const ContactSocialMedia = (props) => {
                     strokeWidth="2" strokeLinejoin="round"></path>
                 </svg>
             </a>
-            <a target='_blank' href={"https://" + props.linkedin} className="border-2 border-gray-200 p-2 ml-3 mr-3 rounded-xl">
+            <a target='_blank' href={"https://" + props.linkedin} className={props.style}>
                 <svg className="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-labelledby="title"
                 aria-describedby="desc" role="img">
                     <title>Linkedin</title>

@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 
-import './ContactDetail.css';
-
 // Import Components
 import Label from './Label/Label';
 import ContactSocialMedia from './ContactSocialMedia/ContactSocialMedia';
@@ -40,11 +38,13 @@ const ContactDetail = (props) => {
             {/* Body of modal */}
             <div className="p-3">
                 <div className="flex flex-col items-center">
-                    <img className="h-20 w-full object-cover md:w-20 mt-3 mb-3 rounded-xl" src={props.person.profile_pic} alt="profile picture" />
+                    <div>
+                        <img className="h-20 w-full object-cover md:w-20 mt-3 mb-3 rounded-xl" src={props.person.profile_pic} alt="profile picture" />
+                    </div>
                     <p className="font-bold capitalize">{props.person.first_name} {props.person.last_name}</p>
                     <p className="text-gray-500 capitalize">{props.person.roles[0]} at <a className="text-indigo-500 font-bold">{props.person.company_name}</a></p>
 
-                    <ContactSocialMedia facebook={props.person.facebook} twitter={props.person.twitter} linkedin={props.person.linkedin} />
+                    <ContactSocialMedia facebook={props.person.facebook} twitter={props.person.twitter} linkedin={props.person.linkedin} style="border-2 border-gray-200 p-2 ml-3 mr-3 rounded-xl" />
                 </div>
                 
                 {/* Details */}
@@ -82,8 +82,7 @@ const ContactDetail = (props) => {
                     <Label title="company description" content={props.company.description}/>
 
                     <Label title="social media" content="">
-                       <ContactSocialMedia facebook={props.company.facebook_url} twitter={props.company.twitter_url} linkedin={props.person.linkedin} />
-                        
+                       <ContactSocialMedia facebook={props.company.facebook_url} twitter={props.company.twitter_url} linkedin={props.person.linkedin} style="p-2 ml-3 mr-3" />
                     </Label>
                 </div>
             </div>
